@@ -1,0 +1,29 @@
+.kopf{
+    color: #ffffff;
+    background-color: #239FE6;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: larger;
+    font-weight: 700;
+}
+
+.fuss{
+    color: #ffffff;
+    background-color: #C4E3F3;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: larger;
+    font-weight: 700;
+}
+
+.abstand{
+    margin-top: 10px;
+}
+
+#fehler{
+    color: red;
+}
+
+.fuss a{
+    color: #ffffff;
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chart Explorer</title>
+
+    <!-- Bootstrap -->
+    <link href="../src/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!-- JQuery UI -->
+    <link href="../src/jqueryui/jquery-ui.min.css" rel="stylesheet">
+    <!-- eigener Style -->
+    <link href="../src/css/style.css" rel="stylesheet">
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-7 kopf">
+            Chart Explorer
+        </div>
+        <div class="col-md-5 kopf">
+            <span id="step1" class="step">Start</span> | <span id="step2" class="step">Dateneingabe</span> | <span id="step3" class="step">Datenübersicht</span> | <span id="step4" class="step">Charts</span>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+        <!-- linke Spalte -->
+        <div class="col-md-4">
+            
+            <div>
+                <img src="../src/img/oregami.png">
+            </div>
+            <div id="fehler">
+
+            </div>
+            <div id="info1">
+                aaaaaaaaaaaaaaaaa
+            </div>
+            <div id="info2">
+                bbbbbbbbbbbbbbbbb
+            </div>
+            <div id="info3">
+                ccccccccccccccccccc
+            </div>
+            <div id="info4">
+                dddddddddddddddd
+            </div>
+            
+        </div>
+        <div class="col-md-8">
+            <!-- Tabs -->
+            <div id="tabs">
+                <ul>
+                    <li id="tab1"><a href="#tabs-1">Start</a></li>
+                    <li id="tab2"><a href="#tabs-2">Dateneingabe</a></li>
+                    <li id="tab3"><a href="#tabs-3">Datenübersicht</a></li>
+                    <li id="tab4"><a href="#tabs-4">Charts</a></li>
+                </ul>
+                <div id="tabs-1">
+                    <p>Start</p>
+                </div>
+                <div id="tabs-2">
+                    <p>Dateneingabe</p>
+                </div>
+                <div id="tabs-3">
+                    <p>Datenübersicht</p>
+                </div>
+                <div id="tabs-4">
+                    <p>Charts</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row abstand">
+        <div class="col-md-8 fuss">&nbsp;</div>
+        <div class="col-md-2 fuss">
+            <a href="http://www.stephankrauss.de" target="_blank">&copy; Stephan Krauß</a>
+        </div>
+        <div class="col-md-2 fuss">
+            <a href="http://bootswatch.com/cerulean/" target="_blank">Bootstrap Cerulean</a>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="../src/jquery/jquery-1.12.1.min.js"></script>
+<!-- jQuery UI -->
+<script type="text/javascript" src="../src/jqueryui/jquery-ui.min.js"></script>
+<!-- Bootstrap -->
+<script src="../src/js/bootstrap.min.js"></script>
+<!-- Handlebars -->
+<script type="text/javascript" src="../src/handlebars/handlebars-v4.0.5.js"></script>
+<!-- Underscore -->
+<script type="text/javascript" src="../src/underscore/underscore.js"></script>
+<!-- d3.js -->
+<script type="text/javascript" src="../src/d3/d3.min.js"></script>
+<!-- uvCharts -->
+<script type="text/javascript" src="../src/uvcharts/uvcharts.min.js"></script>
+<!-- async -->
+<script type="text/javascript" src="../src/async/async.min.js"></script>
+
+<!-- eigene Javascript -->
+<script type="text/javascript" src="index.js"></script>
+<!-- Navigation -->
+<script type="text/javascript" src="navigation.js"></script>
+
+
+
+</body>
+</html>
