@@ -1,11 +1,16 @@
 var navigation = (function()
 {
     // private
-    function setHeadNavigation(activeTabNummer)
+    var tabNummer = 0;
+
+    function setHeadNavigation()
     {
         var response = {};
         try{
-            console.log('Navigation');
+            $(".step").removeClass('underline');
+
+            $("#step" + tabNummer).addClass('underline');
+
             response.message = true;
 
             return response;
@@ -17,16 +22,12 @@ var navigation = (function()
         }
     }
 
-    function setInfoBlock(activeTabNummer)
+    function setActiveTab()
     {
         var response = {};
         try{
-            console.log('Info');
-
-            // Fehler
-            sadasasda();
-
             response.message = true;
+
 
             return response;
         }
@@ -41,17 +42,15 @@ var navigation = (function()
     return{
         setTabNummer: function(activeTabNummer)
         {
+            tabNummer = activeTabNummer;
+
+            return this;
+        },
+        switchNav: function()
+        {
             async.parallel([
                     function(callback) {
-                        var response = setHeadNavigation(activeTabNummer);
-                        if(response.message)
-                            callback(null, true);
-                        else
-                            callback(true, null);
-                    },
-                    function(callback) {
-                        var response = setInfoBlock(activeTabNummer);
-
+                        var response = setHeadNavigation();
                         if(response.message)
                             callback(null, true);
                         else
@@ -60,11 +59,30 @@ var navigation = (function()
                 // Callback
                 function(err, res){
                     if(err){
-                        var message = 'Fehler in den Tabs';
+                        var message = 'Fehler in der Navigation';
                         $("#fehler").html(message);
                     }
+                }
+            );
 
-
+            return this;
+        },
+        switchTab: function()
+        {
+            async.parallel([
+                    function(callback) {
+                        var response = setHeadNavigation();
+                        if(response.message)
+                            callback(null, true);
+                        else
+                            callback(true, null);
+                    }],
+                // Callback
+                function(err, res){
+                    if(err){
+                        var message = 'Fehler in der Navigation';
+                        $("#fehler").html(message);
+                    }
                 }
             );
         }

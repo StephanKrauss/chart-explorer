@@ -28,10 +28,15 @@
 
     <div class="row">
         <div class="col-md-7 kopf">
-            Chart Explorer
+            <a href="http://www.stephankrauss.de" target="_blank" class="headerLink">Chart Explorer</a>
         </div>
         <div class="col-md-5 kopf">
-            <span id="step1" class="step">Start</span> | <span id="step2" class="step">Dateneingabe</span> | <span id="step3" class="step">Datenübersicht</span> | <span id="step4" class="step">Charts</span>
+            <ul class="list-inline">
+                <li id="step0" class="step underline">Start </li>
+                <li id="step1" class="step">Dateneingabe </li>
+                <li id="step2" class="step">Charts </li>
+                <li id="step3" class="step">Datenübersicht</li>
+            </ul>
         </div>
     </div>
 
@@ -42,43 +47,41 @@
             <div>
                 <img src="../src/img/oregami.png">
             </div>
-            <div id="fehler">
+            <div id="fehler"></div>
 
-            </div>
-            <div id="info1">
-                aaaaaaaaaaaaaaaaa
-            </div>
-            <div id="info2">
-                bbbbbbbbbbbbbbbbb
-            </div>
-            <div id="info3">
-                ccccccccccccccccccc
-            </div>
-            <div id="info4">
-                dddddddddddddddd
-            </div>
             
         </div>
         <div class="col-md-8">
             <!-- Tabs -->
             <div id="tabs">
                 <ul>
-                    <li id="tab1"><a href="#tabs-1">Start</a></li>
-                    <li id="tab2"><a href="#tabs-2">Dateneingabe</a></li>
+                    <li id="tab0"><a href="#tabs-0">Start</a></li>
+                    <li id="tab1"><a href="#tabs-1">Dateneingabe</a></li>
+                    <li id="tab2"><a href="#tabs-2">Charts</a></li>
                     <li id="tab3"><a href="#tabs-3">Datenübersicht</a></li>
-                    <li id="tab4"><a href="#tabs-4">Charts</a></li>
                 </ul>
-                <div id="tabs-1">
+                <div id="tabs-0">
                     <p>Start</p>
                 </div>
+                <div id="tabs-1">
+                    <p>
+                        <textarea id="daten" class="form-control dataInput" rows="5"></textarea>
+                        <button class="btn btn-success abstand" id="uebernahme" type="submit">CSV übernehmen</button>
+                    </p>
+                </div>
                 <div id="tabs-2">
-                    <p>Dateneingabe</p>
+                    <p>Charts</p>
                 </div>
                 <div id="tabs-3">
-                    <p>Datenübersicht</p>
-                </div>
-                <div id="tabs-4">
-                    <p>Charts</p>
+                    <script id="quickstart" type="template/handlebars">
+                        <table>
+                            {{#each data}}
+                                {{date}} {{article1}} {{article2}}<br>
+                            {{/each}}
+                        </table>
+                    </script>
+
+                    <p id="tabelle"></p>
                 </div>
             </div>
         </div>
@@ -95,29 +98,39 @@
     </div>
 </div>
 
-<!-- jQuery -->
-<script src="../src/jquery/jquery-1.12.1.min.js"></script>
-<!-- jQuery UI -->
-<script type="text/javascript" src="../src/jqueryui/jquery-ui.min.js"></script>
-<!-- Bootstrap -->
-<script src="../src/js/bootstrap.min.js"></script>
-<!-- Handlebars -->
-<script type="text/javascript" src="../src/handlebars/handlebars-v4.0.5.js"></script>
-<!-- Underscore -->
-<script type="text/javascript" src="../src/underscore/underscore.js"></script>
-<!-- d3.js -->
-<script type="text/javascript" src="../src/d3/d3.min.js"></script>
-<!-- uvCharts -->
-<script type="text/javascript" src="../src/uvcharts/uvcharts.min.js"></script>
-<!-- async -->
-<script type="text/javascript" src="../src/async/async.min.js"></script>
-
-<!-- eigene Javascript -->
-<script type="text/javascript" src="index.js"></script>
-<!-- Navigation -->
-<script type="text/javascript" src="navigation.js"></script>
+    <!-- jQuery -->
+    <script src="../src/jquery/jquery-1.12.1.min.js"></script>
+    <!-- jQuery UI -->
+    <script type="text/javascript" src="../src/jqueryui/jquery-ui.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../src/js/bootstrap.min.js"></script>
+    <!-- Handlebars -->
+    <script type="text/javascript" src="../src/handlebars/handlebars-v4.0.5.js"></script>
+    <!-- Underscore -->
+    <script type="text/javascript" src="../src/underscore/underscore.js"></script>
+    <!-- d3.js -->
+    <script type="text/javascript" src="../src/d3/d3.min.js"></script>
+    <!-- uvCharts -->
+    <script type="text/javascript" src="../src/uvcharts/uvcharts.min.js"></script>
+    <!-- async -->
+    <script type="text/javascript" src="../src/async/async.min.js"></script>
 
 
+    <!-- eigene Javascript Objekte -->
+
+    <!-- Navigations Objekt -->
+    <script type="text/javascript" src="navigation.js"></script>
+
+
+    <!-- generiert die Ausgabe -->
+    <script type="text/javascript" src="generator.js"></script>
+    <!-- Tabellen Objekt -->
+    <script type="text/javascript" src="gridGenerator.js"></script>
+    <!-- Diagramm Objekt -->
+    <script type="text/javascript" src="chartGenerator.js"></script>
+
+    <!-- grundlegende Steuerung / Initialisierung -->
+    <script type="text/javascript" src="index.js"></script>
 
 </body>
 </html>

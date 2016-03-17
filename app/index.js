@@ -1,12 +1,35 @@
 $(document).ready(function()
 {
-    // Tab initialization
-    $('#tabs').tabs().on('click',function(event)
-    {
-        $("#fehler").html(' ');
-        var activeTabNummer = $( "#tabs" ).tabs( "option", "active" );
-        navigation.setTabNummer(activeTabNummer);
+    // Helper für Tabelle
+    Handlebars.registerHelper('spalten', function(column) {
+        return '<td>' + column + '</td>';
     });
 
-    $("#tabs").css("min-height", "600px");
+    // Tabs initialisieren
+    $('#tabs').tabs().on('click',function()
+    {
+        $("#fehler").html(' ');
+        var activeTabNumber = $( "#tabs" ).tabs( "option", "active" );
+
+        navigation.setTabNummer(activeTabNumber).switchNav();
+    });
+
+    // Header Navigation
+    $(".step").on('click',function(event){
+        var activeTabNumber = $(this).attr('id');
+        activeTabNumber = activeTabNumber.substr(4);
+
+        $("#tabs" ).tabs({ active: activeTabNumber});
+        navigation.setTabNummer(activeTabNumber).switchNav();
+    });
+
+    // minimale Höhe Tabs
+    $("#tabs").css("min-height", "700px");
+
+    // Datenuebernahme
+    $("#uebernahme").on('click',function()
+    {
+        var inputCsv = $("#daten").val();
+        generator.setCsvData(inputCsv).setTableGenerator(gridGenerator).setChartGenerator(chartGenerator).generateTableAndChart();
+    });
 });
