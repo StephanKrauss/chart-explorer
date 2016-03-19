@@ -24,7 +24,7 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container-fluid">
 
     <div class="row">
         <div class="col-md-7 kopf">
@@ -55,34 +55,67 @@
             <!-- Tabs -->
             <div id="tabs">
                 <ul>
-                    <li id="tab0"><a href="#tabs-0">Start</a></li>
-                    <li id="tab1"><a href="#tabs-1">Dateneingabe</a></li>
-                    <li id="tab2"><a href="#tabs-2">Charts</a></li>
-                    <li id="tab3"><a href="#tabs-3">Datenübersicht</a></li>
+                    <li><a href="#tabs-0">Start</a></li>
+                    <li><a href="#tabs-1">Dateneingabe</a></li>
+                    <li><a href="#tabs-2">Charts</a></li>
+                    <li><a href="#tabs-3">Datenübersicht</a></li>
                 </ul>
+               
                 <div id="tabs-0">
                     <p>Start</p>
                 </div>
+
                 <div id="tabs-1">
-                    <p>
                         <textarea id="daten" class="form-control dataInput" rows="5"></textarea>
                         <button class="btn btn-success abstand" id="uebernahme" type="submit">CSV übernehmen</button>
-                    </p>
                 </div>
+
                 <div id="tabs-2">
-                    <p>Charts</p>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <select class="form-control" id="chartType">
+                                    <option value="Line">Liniendiagramm</option>
+                                    <option value="Bar">Säulendiagramm</option>
+                                    <option value="Area">Bereichsdiagramm</option>
+                                    <option value="StackedBar">Säulendiagramm (gestapelt)</option>
+                                    <option value="StackedArea">Bereichsdiagramm (gestapelt)</option>
+                                    <option value="Pie">Kreisdiagramm</option>
+                                    <option value="PercentBar">Säulendiagramm (Prozente)</option>
+                                    <option value="PercentArea">Bereichsdiagramm (Prozente)</option>
+                                    <option value="Donut">Donut</option>
+                                    <option value="StepUpBar">Säulendiagramm (Schritte)</option>
+                                    <option value="PolarArea">Polardiagramm</option>
+                                    <option value="Waterfall">Wasserfall</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Chart -->
+                        <div class="col-md-12" id="uv-div" style="width: auto"></div>
+
+
+                    </div>
                 </div>
+
                 <div id="tabs-3">
+                    <!-- Template -->
                     <script id="quickstart" type="template/handlebars">
-                        <table>
+                        <table class="table table-striped">
+                            <tbody>
                             {{#each data}}
-                                {{date}} {{article1}} {{article2}}<br>
+                                <tr>
+                                    {{{tabelle this}}}
+                                </tr>
                             {{/each}}
+                            </tbody>
                         </table>
                     </script>
 
-                    <p id="tabelle"></p>
+                    <!-- Tabelle -->
+                    <div id="tabelle" class="col-md-12"></div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -93,7 +126,7 @@
             <a href="http://www.stephankrauss.de" target="_blank">&copy; Stephan Krauß</a>
         </div>
         <div class="col-md-2 fuss">
-            <a href="http://bootswatch.com/cerulean/" target="_blank">Bootstrap Cerulean</a>
+            &nbsp;
         </div>
     </div>
 </div>
@@ -120,17 +153,14 @@
 
     <!-- Navigations Objekt -->
     <script type="text/javascript" src="navigation.js"></script>
-
-
-    <!-- generiert die Ausgabe -->
-    <script type="text/javascript" src="generator.js"></script>
+    <!-- Daten -->
+    <script type="text/javascript" src="dataStore.js"></script>
     <!-- Tabellen Objekt -->
     <script type="text/javascript" src="gridGenerator.js"></script>
     <!-- Diagramm Objekt -->
     <script type="text/javascript" src="chartGenerator.js"></script>
-
-    <!-- grundlegende Steuerung / Initialisierung -->
-    <script type="text/javascript" src="index.js"></script>
+    <!-- allgemeine Steuerung -->
+    <script type="text/javascript" src="control.js"></script>
 
 </body>
 </html>

@@ -21,15 +21,15 @@ var gridGenerator = (function()
                 // kompilieren Block
                 var compile = Handlebars.compile(template);
 
-                // umwandeln in ein Objekt
-                var grid = JSON.parse(gridData);
-
-                var tabelle = {
-                    data: grid
-                };
+                //// umwandeln in ein Objekt
+                //var grid = JSON.parse(gridData);
+                //
+                //var tabelle = {
+                //    data: grid
+                //};
 
                 // kompilieren
-                var output = compile(tabelle);
+                var output = compile(gridData);
 
                 // Werte ins Fenster
                 $("#tabelle").html(output);
