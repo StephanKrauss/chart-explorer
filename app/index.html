@@ -24,7 +24,7 @@
 </head>
 <body>
 
-<div class="container-fluid">
+<div class="container">
 
     <div class="row">
         <div class="col-md-7 kopf">
@@ -42,16 +42,16 @@
 
     <div class="row" style="margin-top: 20px;">
         <!-- linke Spalte -->
-        <div class="col-md-4">
+        <div class="col-md-3">
             
             <div>
-                <img src="../src/img/oregami.png">
+                <img src="../src/img/oregami_mini.png">
             </div>
             <div id="fehler"></div>
 
             
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
             <!-- Tabs -->
             <div id="tabs">
                 <ul>
@@ -62,7 +62,33 @@
                 </ul>
                
                 <div id="tabs-0">
-                    <p>Start</p>
+                    <p>
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-info">Description:</li>
+                            <li class="list-group-item">
+                                Diagrammtool in Ergänzung vorhandener MySQL Verwaltungsprogramme.
+                                Übernimmt die CSV Daten einer Query und visualisiert diese.
+                                Dadurch können neue Datensätze mit bereits vorhandenen Fragen erkundet werden.
+                            </li>
+                            <li class="list-group-item list-group-item-info">Video:</li>
+                            <li class="list-group-item"> </li>
+                            <li class="list-group-item list-group-item-info">Installation:</li>
+                            <li class="list-group-item">
+                                Im Document Root des Server ein Verzeichnis anlegen.
+                                Inhalt der Zip - Datei in dieses Verzeichnis ablegen.
+                                Durch Aufruf der /app/index.html wird die Applikation gestartet.
+                            </li>
+
+                            <li class="list-group-item list-group-item-info">Credits:</li>
+                            <li class="list-group-item"><a href="https://jquery.com/" target="_blank"> JQuery , MIT </a></li>
+                            <li class="list-group-item"><a href="https://jqueryui.com/" target="_blank"> JQueryUI , MIT </a></li>
+                            <li class="list-group-item"><a href="http://getbootstrap.com/" target="_blank"> Bbootstrap , MIT </a></li>
+                            <li class="list-group-item"><a href="http://handlebarsjs.com/" target="_blank"> Handlebars , MIT </a></li>
+                            <li class="list-group-item"><a href="http://imaginea.github.io/uvCharts/" target="_blank"> UvCharts , MIT </a></li>
+                            <li class="list-group-item"><a href="https://github.com/caolan/async" target="_blank"> Async , Free </a></li>
+                        </ul>
+
+                    </p>
                 </div>
 
                 <div id="tabs-1">
@@ -75,7 +101,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <select class="form-control" id="chartType">
-                                    <option value="Line">Liniendiagramm</option>
+                                    <option value="Line" selected>Liniendiagramm</option>
                                     <option value="Bar">Säulendiagramm</option>
                                     <option value="Area">Bereichsdiagramm</option>
                                     <option value="StackedBar">Säulendiagramm (gestapelt)</option>
@@ -104,9 +130,7 @@
                         <table class="table table-striped">
                             <tbody>
                             {{#each data}}
-                                <tr>
-                                    {{{tabelle this}}}
-                                </tr>
+                                {{{tabelle this @key}}}
                             {{/each}}
                             </tbody>
                         </table>
@@ -139,8 +163,6 @@
     <script src="../src/js/bootstrap.min.js"></script>
     <!-- Handlebars -->
     <script type="text/javascript" src="../src/handlebars/handlebars-v4.0.5.js"></script>
-    <!-- Underscore -->
-    <script type="text/javascript" src="../src/underscore/underscore.js"></script>
     <!-- d3.js -->
     <script type="text/javascript" src="../src/d3/d3.min.js"></script>
     <!-- uvCharts -->

@@ -41,10 +41,11 @@ var control = (function()
         generateTableAndChart: function()
         {
             async.series([
+                // Daten
                 function(callback)
                 {
                     dataStore.setCsvData(data);
-                    response = dataStore.convertData();
+                    response = dataStore.convertData().chartData().getResponse();
 
                     if(response.err)
                         callback(true, response.message);
@@ -53,6 +54,7 @@ var control = (function()
 
                     return;
                 },
+                // Tabelle
                 function(callback)
                 {
                     var response = objGridGenerator.setData(dataStore.getDataObj()).generate().getResponse();
@@ -63,9 +65,15 @@ var control = (function()
 
                     return;
                 },
+                // Diagramm
                 function(callback)
                 {
-                    var response = objChartGenerator.setData(dataStore.getDataObj()).setChartType(chartType).generate().getResponse();
+                    var response = objChartGenerator
+                        .setData(dataStore.getChartData())
+                        .setChartType(chartType)
+                        .setCountElementeChart(dataStore.getCountElementsChart())
+                        .generate()
+                        .getResponse();
 
                     if(response.err)
                         callback(true, response.message);
@@ -93,13 +101,20 @@ var control = (function()
 $(document).ready(function()
 {
     // Helper für Tabelle
-    Handlebars.registerHelper('tabelle', function(colsObj)
+    Handlebars.registerHelper('tabelle', function(colsObj, index)
     {
         var row = '';
 
+        row += '<tr>';
+
         for (var key in colsObj) {
-            row += '<td>' + colsObj[key] + '</td>';
+            if(index > 0)
+                row += '<td>' + colsObj[key] + '</td>';
+            else
+                row += '<th>' + colsObj[key] + '</th>';
         }
+
+        row += '</tr>';
 
         return row;
     });

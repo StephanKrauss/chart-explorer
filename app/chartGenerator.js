@@ -8,26 +8,27 @@ var chartGenerator = (function()
 
     // Chart
     var chart = null;
+    var countElementsChart = 0;
 
     function generateChart()
     {
-        var graphdef = {
-            categories : ['uvCharts'],
-            dataset : {
-                'uvCharts' : [
-                    { name : '2009', value : 32 },
-                    { name : '2010', value : 60 },
-                    { name : '2011', value : 97 },
-                    { name : '2012', value : 560 },
-                    { name : '2013', value : 999 }
-                ]
-            }
-        };
+        // berechnen Breite
+        var  breite = countElementsChart * 100;
+
+        if(type == 'Pie' || type == 'Donut' || type == 'PolarArea')
+            breite = 1000;
+
+        var colors = [];
+
+        for(var i = 0; i < 20; i++){
+            var farbe = randomColor();
+            colors[i] = invertColor(farbe);
+        }
 
         var config = {
             graph: {
                 orientation: 'Vertical',
-                custompalette: ['#FF0066','#8A2E1A','#00E61A','#0000FF','#BF2640','#669999','#BF338C']
+                custompalette: colors
             },
             meta: {
                 caption: 'Erkunden von Daten',
@@ -37,7 +38,7 @@ var chartGenerator = (function()
                 position: 'right'
             },
             dimension: {
-                width: 700, // dynamisch rechnen
+                width: breite, // dynamisch rechnen
                 top: 20,
                 bottom: 20,
                 left: 20,
@@ -48,9 +49,31 @@ var chartGenerator = (function()
         if(chart)
             chart.remove();
 
-        chart = uv.chart(type, graphdef, config);
+        chart = uv.chart(type, chartData, config);
 
         return;
+    }
+
+    function randomColor() {
+        var color;
+        color = Math.floor(Math.random() * 0x1000000); // integer between 0x0 and 0xFFFFFF
+        color = color.toString(16);                    // convert to hex
+        color = ("000000" + color).slice(-6);          // pad with leading zeros
+        color = "#" + color;                           // prepend #
+
+        return color;
+    }
+
+    function invertColor(hexTripletColor) {
+        var color = hexTripletColor;
+        color = color.substring(1);           // remove #
+        color = parseInt(color, 16);          // convert to integer
+        color = 0xFFFFFF ^ color;             // invert three bytes
+        color = color.toString(16);           // convert to hex
+        color = ("000000" + color).slice(-6); // pad with leading zeros
+        color = "#" + color;                  // prepend #
+
+        return color;
     }
 
     // public
@@ -58,6 +81,12 @@ var chartGenerator = (function()
         setData: function(data)
         {
             chartData = data;
+
+            return this;
+        },
+        setCountElementeChart: function(countElements)
+        {
+            countElementsChart = countElements;
 
             return this;
         },
