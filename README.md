@@ -1,7 +1,5 @@
- <ul class="list-group">
-                            <li class="list-group-item list-group-item-info">Beschreibung:</li>
-                            <li class="list-group-item">
-                                Dieser 'Chart - Explorer' kann in Ergänzung zu bereits vorhandenen Datenbank Verwaltungsprogrammen genutzt werden.
+ + ### Beschreibung:
+ + Dieser 'Chart - Explorer' kann in Ergänzung zu bereits vorhandenen Datenbank Verwaltungsprogrammen genutzt werden.
                                 Der 'Chart - Explorer' hat die Aufgabe Datensätze in Diagrammform zu visualisieren.
                                 An den 'Chart Explorer' wird das Ergebnis einer Datenbankabfrage als CSV übergeben.
                                 In der ersten Zeile der übernimmt der 'Chart Explorer' die Spaltennamen.
@@ -9,8 +7,7 @@
                                 Alle nachfolgenden Spalten beinhalten nummerische Werte. Die Zellen der einzelnen Zeilen sind untereinander mit Semikolon getrennt.
                                 Der Inhalt der Zellen wird nicht escaped.
                                 Die Zeilen werden mit '\n' beendet.
-                            </li>
-                            <li class="list-group-item list-group-item-info">Demo:</li>
++ ### Demo:
                             <li class="list-group-item"> <a href="http.//chart-explorer.stephankrauss.de">Demo</a> </li>
                             <li class="list-group-item list-group-item-info">Installation:</li>
                             <li class="list-group-item">
