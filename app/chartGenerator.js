@@ -31,7 +31,7 @@ var chartGenerator = (function()
                 custompalette: colors
             },
             meta: {
-                caption: 'Erkunden von Daten',
+                caption: 'Chart Explorer',
                 isDownloadable: true
             },
             legend: {
@@ -105,6 +105,13 @@ var chartGenerator = (function()
         getResponse: function()
         {
             return response;
+        },
+        hasChart: function()
+        {
+            if(chart)
+                return true;
+            else
+                return false;
         }
     }
 })();

@@ -48,6 +48,8 @@ var navigation = (function()
         },
         switchNav: function()
         {
+            $("#fehler").html('');
+
             async.parallel([
                     function(callback) {
                         var response = setHeadNavigation();

@@ -87,7 +87,6 @@ var control = (function()
                     if(err){
                         $("#fehler").html(message);
                     }
-
                 }
             );
 
@@ -156,5 +155,20 @@ $(document).ready(function()
     $('#chartType').on('change', function()
     {
         chartGenerator.setChartType(this.value).generate();
+    });
+
+    // Chart print
+    $("#printButton").on('click',function()
+    {
+        $("#fehler").html('');
+
+        $("#tabs" ).tabs({ active: 2});
+
+        if(chartGenerator.hasChart() === false)
+            $("#fehler").html('kein Diagramm vorhanden');
+        else
+            window.print();
+
+        return false;
     });
 });

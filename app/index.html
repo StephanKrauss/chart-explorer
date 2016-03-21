@@ -26,56 +26,66 @@
 
 <div class="container">
 
-    <div class="row">
-        <div class="col-md-7 kopf">
+    <div class="row hidden-print">
+        <div class="col-md-6 kopf">
             <a href="http://www.stephankrauss.de" target="_blank" class="headerLink">Chart Explorer</a>
         </div>
-        <div class="col-md-5 kopf">
+        <div class="col-md-6 kopf">
             <ul class="list-inline">
                 <li id="step0" class="step underline">Start </li>
                 <li id="step1" class="step">Dateneingabe </li>
-                <li id="step2" class="step">Charts </li>
+                <li id="step2" class="step">Diagramme </li>
                 <li id="step3" class="step">Datenübersicht</li>
+                <li>
+                    <button type="button" class="btn btn-primary btn-xs" id="printButton">
+                        <span class="glyphicon glyphicon-print"></span>
+                    </button>
+                </li>
             </ul>
         </div>
     </div>
 
     <div class="row" style="margin-top: 20px;">
         <!-- linke Spalte -->
-        <div class="col-md-3">
-            
+        <div class="col-md-3 hidden-print">
             <div>
+                Vers.: 0.2<br>
                 <img src="../src/img/oregami_mini.png">
             </div>
             <div id="fehler"></div>
-
-            
         </div>
+
+        <!-- rechte Spalte -->
         <div class="col-md-9">
             <!-- Tabs -->
             <div id="tabs">
-                <ul>
+                <ul class="hidden-print">
                     <li><a href="#tabs-0">Start</a></li>
                     <li><a href="#tabs-1">Dateneingabe</a></li>
-                    <li><a href="#tabs-2">Charts</a></li>
+                    <li><a href="#tabs-2">Diagramme</a></li>
                     <li><a href="#tabs-3">Datenübersicht</a></li>
                 </ul>
                
-                <div id="tabs-0">
+                <div id="tabs-0" class="hidden-print">
                     <p>
                         <ul class="list-group">
-                            <li class="list-group-item list-group-item-info">Description:</li>
+                            <li class="list-group-item list-group-item-info">Beschreibung:</li>
                             <li class="list-group-item">
-                                Diagrammtool in Ergänzung vorhandener MySQL Verwaltungsprogramme.
-                                Übernimmt die CSV Daten einer Query und visualisiert diese.
-                                Dadurch können neue Datensätze mit bereits vorhandenen Fragen erkundet werden.
+                                Dieser 'Chart - Explorer' kann in Ergänzung zu bereits vorhandenen Datenbank Verwaltungsprogrammen genutzt werden.
+                                Der 'Chart - Explorer' hat die Aufgabe Datensätze in Diagrammform zu visualisieren.
+                                An den 'Chart Explorer' wird das Ergebnis einer Datenbankabfrage als CSV übergeben.
+                                In der ersten Zeile der übernimmt der 'Chart Explorer' die Spaltennamen.
+                                Mit der zweiten Zeile werden die Datensätze übergeben. In der linken Spalte befinden sich die Werte für die X - Achse der Diagramme.
+                                Alle nachfolgenden Spalten beinhalten nummerische Werte. Die Zellen der einzelnen Zeilen sind untereinander mit Semikolon getrennt.
+                                Der Inhalt der Zellen wird nicht escaped.
+                                Die Zeilen werden mit '\n' beendet.
                             </li>
-                            <li class="list-group-item list-group-item-info">Video:</li>
-                            <li class="list-group-item"> </li>
+                            <li class="list-group-item list-group-item-info">Demo:</li>
+                            <li class="list-group-item"> <a href="http.//chart-explorer.stephankrauss.de">Demo</a> </li>
                             <li class="list-group-item list-group-item-info">Installation:</li>
                             <li class="list-group-item">
-                                Im Document Root des Server ein Verzeichnis anlegen.
-                                Inhalt der Zip - Datei in dieses Verzeichnis ablegen.
+                                Im 'Document Root' eines Servers wird ein Verzeichnis anlegen.
+                                Der Inhalt der Zip - Datei  wird in dieses Verzeichnis kopiert.
                                 Durch Aufruf der /app/index.html wird die Applikation gestartet.
                             </li>
 
@@ -84,21 +94,33 @@
                             <li class="list-group-item"><a href="https://jqueryui.com/" target="_blank"> JQueryUI , MIT </a></li>
                             <li class="list-group-item"><a href="http://getbootstrap.com/" target="_blank"> Bbootstrap , MIT </a></li>
                             <li class="list-group-item"><a href="http://handlebarsjs.com/" target="_blank"> Handlebars , MIT </a></li>
-                            <li class="list-group-item"><a href="http://imaginea.github.io/uvCharts/" target="_blank"> UvCharts , MIT </a></li>
+                            <li class="list-group-item"><a href="http://imaginea.github.io/uvCharts/" target="_blank"> uvCharts , MIT </a></li>
                             <li class="list-group-item"><a href="https://github.com/caolan/async" target="_blank"> Async , Free </a></li>
+                            <li class="list-group-item list-group-item-info">zu erledigen:</li>
+                            <li class="list-group-item">Verhinderung der Eingabe von 'unsauberen' Werten , Vers. 0.3</li>
+                            <li class="list-group-item">Überarbeitung der Anzeige / Reaktion auf Fehler , Vers. 0.4</li>
+                            <li class="list-group-item">Anbindung an relationale Datenbanken , Vers. 0.5</li>
+                            <li class="list-group-item">nachträgliche interaktive Veränderung der Diagramme , 0.6</li>
                         </ul>
 
                     </p>
                 </div>
 
-                <div id="tabs-1">
-                        <textarea id="daten" class="form-control dataInput" rows="5"></textarea>
+                <div id="tabs-1" class="hidden-print">
+                        <textarea id="daten" class="form-control dataInput" rows="5">
+                            date;umsatz;stueckzahl;gewinn
+                            2015-03-01;28.83;27.03;68.32
+                            2015-03-02;52.26;27.47;78.49
+                            2015-03-03;50.23;19.37;11.14
+                            2015-03-04;44.92;46.40;49.88
+                            2015-03-05;12.85;18.01;90.26
+                        </textarea>
                         <button class="btn btn-success abstand" id="uebernahme" type="submit">CSV übernehmen</button>
                 </div>
 
                 <div id="tabs-2">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4 hidden-print">
                             <div class="form-group">
                                 <select class="form-control" id="chartType">
                                     <option value="Line" selected>Liniendiagramm</option>
@@ -117,6 +139,11 @@
                             </div>
                         </div>
 
+                        <!-- Beschreibung Diagramm -->
+                        <div class="col-md-12">
+                            <textarea id="diagrammbeschreibung">Diagrammbeschreibung</textarea>
+                        </div>
+
                         <!-- Chart -->
                         <div class="col-md-12" id="uv-div" style="width: auto"></div>
 
@@ -124,7 +151,7 @@
                     </div>
                 </div>
 
-                <div id="tabs-3">
+                <div id="tabs-3" class="hidden-print">
                     <!-- Template -->
                     <script id="quickstart" type="template/handlebars">
                         <table class="table table-striped">
@@ -144,14 +171,8 @@
         </div>
     </div>
 
-    <div class="row abstand">
-        <div class="col-md-8 fuss">&nbsp;</div>
-        <div class="col-md-2 fuss">
-            <a href="http://www.stephankrauss.de" target="_blank">&copy; Stephan Krauß</a>
-        </div>
-        <div class="col-md-2 fuss">
-            &nbsp;
-        </div>
+    <div class="row abstand hidden-print">
+        <div class="col-md-12 fuss"><a href="http://www.stephankrauss.de" target="_blank">&copy; Stephan Krauß</a></div>
     </div>
 </div>
 
