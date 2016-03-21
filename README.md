@@ -8,13 +8,9 @@
                                 Der Inhalt der Zellen wird nicht escaped.
                                 Die Zeilen werden mit '\n' beendet.
 + ### Demo:
-                            <li class="list-group-item"> <a href="http.//chart-explorer.stephankrauss.de">Demo</a> </li>
-                            <li class="list-group-item list-group-item-info">Installation:</li>
-                            <li class="list-group-item">
-                                Im 'Document Root' eines Servers wird ein Verzeichnis anlegen.
-                                Der Inhalt der Zip - Datei  wird in dieses Verzeichnis kopiert.
-                                Durch Aufruf der /app/index.html wird die Applikation gestartet.
-                            </li>
++ <a href="http.//chart-explorer.stephankrauss.de">Demo</a>
++ <b>Installation:</b>
++ Im 'Document Root' eines Servers wird ein Verzeichnis anlegen. Der Inhalt der Zip - Datei  wird in dieses Verzeichnis kopiert. Durch Aufruf der /app/index.html wird die Applikation gestartet.
 
                             <li class="list-group-item list-group-item-info">Credits:</li>
                             <li class="list-group-item"><a href="https://jquery.com/" target="_blank"> JQuery , MIT </a></li>
