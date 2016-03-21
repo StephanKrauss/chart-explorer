@@ -7,7 +7,7 @@ Mit der zweiten Zeile werden die Datensätze übergeben. In der linken Spalte be
 Alle nachfolgenden Spalten beinhalten nummerische Werte. Die Zellen der einzelnen Zeilen sind untereinander mit Semikolon getrennt.
 Der Inhalt der Zellen wird nicht escaped.
 Die Zeilen werden mit '\n' beendet.
-+ **Demo:** <a href="http.//chart-explorer.stephankrauss.de">Demo</a>
++ **Demo:** <a href="http.//chart-explorer.stephankrauss.de/app/" target='_blank'>http://chart-explorer.stephankrauss.de/app/</a>
 + **Installation:**
   + Im 'Document Root' eines Servers wird ein Verzeichnis anlegen. Der Inhalt der Zip - Datei  wird in dieses Verzeichnis kopiert. Durch Aufruf der /app/index.html wird die Applikation gestartet.
 + **Credits:**
