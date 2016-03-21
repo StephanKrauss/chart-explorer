@@ -7,12 +7,11 @@
                                 Alle nachfolgenden Spalten beinhalten nummerische Werte. Die Zellen der einzelnen Zeilen sind untereinander mit Semikolon getrennt.
                                 Der Inhalt der Zellen wird nicht escaped.
                                 Die Zeilen werden mit '\n' beendet.
-+ ### Demo:
-+ <a href="http.//chart-explorer.stephankrauss.de">Demo</a>
++ Demo: <a href="http.//chart-explorer.stephankrauss.de">Demo</a>
 + <b>Installation:</b>
 + Im 'Document Root' eines Servers wird ein Verzeichnis anlegen. Der Inhalt der Zip - Datei  wird in dieses Verzeichnis kopiert. Durch Aufruf der /app/index.html wird die Applikation gestartet.
 
-                            <li class="list-group-item list-group-item-info">Credits:</li>
+ + Credits:
                             <li class="list-group-item"><a href="https://jquery.com/" target="_blank"> JQuery , MIT </a></li>
                             <li class="list-group-item"><a href="https://jqueryui.com/" target="_blank"> JQueryUI , MIT </a></li>
                             <li class="list-group-item"><a href="http://getbootstrap.com/" target="_blank"> Bbootstrap , MIT </a></li>
