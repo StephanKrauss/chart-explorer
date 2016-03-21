@@ -11,7 +11,7 @@
 + **Installation:**
 	+ Im 'Document Root' eines Servers wird ein Verzeichnis anlegen. Der Inhalt der Zip - Datei  wird in dieses Verzeichnis kopiert. Durch Aufruf der /app/index.html wird die Applikation gestartet.
 + **Credits:**
-	+ JQuery , MIT
+    + JQuery , MIT
     + JQueryUI , MIT
     + Bootstrap , MIT
     + Handlebars , MIT
