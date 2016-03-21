@@ -1,5 +1,5 @@
  + <u>Beschreibung:</u>
- + Dieser 'Chart - Explorer' kann in Ergänzung zu bereits vorhandenen Datenbank Verwaltungsprogrammen genutzt werden.
+     + Dieser 'Chart - Explorer' kann in Ergänzung zu bereits vorhandenen Datenbank Verwaltungsprogrammen genutzt werden.
                                 Der 'Chart - Explorer' hat die Aufgabe Datensätze in Diagrammform zu visualisieren.
                                 An den 'Chart Explorer' wird das Ergebnis einer Datenbankabfrage als CSV übergeben.
                                 In der ersten Zeile der übernimmt der 'Chart Explorer' die Spaltennamen.
