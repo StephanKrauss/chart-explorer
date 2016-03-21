@@ -22,3 +22,4 @@ Die Zeilen werden mit '\n' beendet.
   + Überarbeitung der Anzeige / Reaktion auf Fehler , Vers. 0.4
   + Anbindung an relationale Datenbanken , Vers. 0.5
   + nachträgliche interaktive Veränderung der Diagramme , 0.6
++ **Licence:** MIT
